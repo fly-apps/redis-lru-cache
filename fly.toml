@@ -1,0 +1,17 @@
+app = "redis-lru-example"
+
+[[services]]
+internal_port = 6379
+protocol      = "tcp"
+
+  [services.concurrency]
+  hard_limit = 1000
+  soft_limit = 750
+
+  [[services.ports]]
+  handlers = []
+  port     = "10000"
+
+  [[services.tcp_checks]]
+  interval = 10000
+  timeout  = 2000
